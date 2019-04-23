@@ -1,0 +1,50 @@
+<?php
+	/*Fetch dynamic data here to pass in js if applicable*/
+
+	$trackingPixelCollection = $block->getGlobalTrackingPixelCollection();
+	foreach($trackingPixelCollection as $trackingPixel){		
+		if($trackingPixel->getData('api_client_code')==1 && $trackingPixel->getData('display_in_cart_page')){
+			/*Put respective api_name's js here*/
+?>
+			<script>
+				console.log('cart page of API 1');			
+			</script>
+<?php
+		}
+		if($trackingPixel->getData('api_client_code')==2 && $trackingPixel->getData('display_in_cart_page')){
+			/*Put respective api_name's js here*/
+?>
+			<script>
+				console.log('cart page of API 2');			
+			</script>
+<?php
+		}
+
+		if($trackingPixel->getData('api_client_code')==3 && $trackingPixel->getData('display_in_cart_page')){
+			/*Put respective api_name's js here*/
+?>
+			<script>
+				console.log('cart page of API 3');			
+			</script>
+<?php
+		}
+
+		if($trackingPixel->getData('api_client_code')==4 && $trackingPixel->getData('display_in_cart_page')){
+			/*Put respective api_name's js here*/
+?>
+			<script>
+				console.log('cart page of API 4');			
+			</script>
+<?php
+		}
+
+		if($trackingPixel->getData('api_client_code')==5 && $trackingPixel->getData('display_in_cart_page')){
+			/*Put respective api_name's js here*/
+?>
+			<script>
+				console.log('cart page of API 5');			
+			</script>
+<?php
+		}
+	}
+?>

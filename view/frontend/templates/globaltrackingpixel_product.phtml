@@ -1,0 +1,10 @@
+<?php
+	/*Fetch dynamic data here to pass in js if applicable*/
+
+	$trackingPixelCollection = $block->getGlobalTrackingPixelCollection();
+	foreach($trackingPixelCollection as $trackingPixel){		
+		if($trackingPixel->getData('api_client_code')==1 && $trackingPixel->getData('display_in_product_page')){
+			/*Put respective api_name's js here*/
+		}
+	}
+?>

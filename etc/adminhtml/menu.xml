@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Redstage_GlobalTrackingPixel::parent" title="Redstage" module="Redstage_GlobalTrackingPixel" sortOrder="100" resource="Redstage_GlobalTrackingPixel::parent"/>
+		<add id="Redstage_GlobalTrackingPixel::globaltrackingpixel" title="Global Tracking Pixel" module="Redstage_GlobalTrackingPixel" sortOrder="20" parent="Redstage_GlobalTrackingPixel::parent" action="globaltrackingpixel/globaltrackingpixel" resource="Redstage_GlobalTrackingPixel::globaltrackingpixel"/>
+    </menu>
+</config>

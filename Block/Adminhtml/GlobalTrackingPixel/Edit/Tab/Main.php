@@ -1,0 +1,288 @@
+<?php
+
+namespace Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Edit\Tab;
+
+/**
+ * GlobalTrackingPixel edit form main tab
+ */
+class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magento\Backend\Block\Widget\Tab\TabInterface
+{
+    /**
+     * @var \Magento\Store\Model\System\Store
+     */
+    protected $_systemStore;
+
+    /**
+     * @var \Redstage\GlobalTrackingPixel\Model\Status
+     */
+    protected $_status;
+
+    /**
+     * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Magento\Framework\Registry $registry
+     * @param \Magento\Framework\Data\FormFactory $formFactory
+     * @param \Magento\Store\Model\System\Store $systemStore
+     * @param array $data
+     */
+    public function __construct(
+        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Framework\Registry $registry,
+        \Magento\Framework\Data\FormFactory $formFactory,
+        \Magento\Store\Model\System\Store $systemStore,
+        \Redstage\GlobalTrackingPixel\Model\Status $status,
+        array $data = []
+    ) {
+        $this->_systemStore = $systemStore;
+        $this->_status = $status;
+        parent::__construct($context, $registry, $formFactory, $data);
+    }
+
+    /**
+     * Prepare form
+     *
+     * @return $this
+     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     */
+    protected function _prepareForm()
+    {
+        /* @var $model \Redstage\GlobalTrackingPixel\Model\BlogPosts */
+        $model = $this->_coreRegistry->registry('globaltrackingpixel');
+
+        $isElementDisabled = false;
+
+        /** @var \Magento\Framework\Data\Form $form */
+        $form = $this->_formFactory->create();
+
+        $form->setHtmlIdPrefix('page_');
+
+        $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Item Information')]);
+
+        if ($model->getId()) {
+            $fieldset->addField('entity_id', 'hidden', ['name' => 'entity_id']);
+        }
+
+		
+        $fieldset->addField(
+            'api_name',
+            'text',
+            [
+                'name' => 'api_name',
+                'label' => __('Api Name'),
+                'title' => __('Api Name'),
+				
+                'disabled' => $isElementDisabled
+            ]
+        );
+					
+        $fieldset->addField(
+            'api_client_code',
+            'text',
+            [
+                'name' => 'api_client_code',
+                'label' => __('Api Client Code'),
+                'title' => __('Api Client Code'),
+				
+                'disabled' => $isElementDisabled
+            ]
+        );
+									
+						
+        $fieldset->addField(
+            'display_in_global_page',
+            'select',
+            [
+                'label' => __('Display In Global Page '),
+                'title' => __('Display In Global Page '),
+                'name' => 'display_in_global_page',
+				
+                'options' => \Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Grid::getOptionArray2(),
+                'disabled' => $isElementDisabled
+            ]
+        );
+						
+										
+						
+        $fieldset->addField(
+            'display_in_home_page',
+            'select',
+            [
+                'label' => __('Display In Home Page '),
+                'title' => __('Display In Home Page '),
+                'name' => 'display_in_home_page',
+				
+                'options' => \Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Grid::getOptionArray3(),
+                'disabled' => $isElementDisabled
+            ]
+        );
+						
+										
+						
+        $fieldset->addField(
+            'display_in_category_page',
+            'select',
+            [
+                'label' => __('Display In Category Page '),
+                'title' => __('Display In Category Page '),
+                'name' => 'display_in_category_page',
+				
+                'options' => \Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Grid::getOptionArray4(),
+                'disabled' => $isElementDisabled
+            ]
+        );
+						
+										
+						
+        $fieldset->addField(
+            'display_in_catalogsearch_page',
+            'select',
+            [
+                'label' => __('Display In Catalog Search Page '),
+                'title' => __('Display In Catalog Search Page '),
+                'name' => 'display_in_catalogsearch_page',
+				
+                'options' => \Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Grid::getOptionArray5(),
+                'disabled' => $isElementDisabled
+            ]
+        );
+						
+										
+						
+        $fieldset->addField(
+            'display_in_product_page',
+            'select',
+            [
+                'label' => __('Display In Product  Page '),
+                'title' => __('Display In Product  Page '),
+                'name' => 'display_in_product_page',
+				
+                'options' => \Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Grid::getOptionArray6(),
+                'disabled' => $isElementDisabled
+            ]
+        );
+						
+										
+						
+        $fieldset->addField(
+            'display_in_cart_page',
+            'select',
+            [
+                'label' => __('Display In Cart Page '),
+                'title' => __('Display In Cart Page '),
+                'name' => 'display_in_cart_page',
+				
+                'options' => \Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Grid::getOptionArray7(),
+                'disabled' => $isElementDisabled
+            ]
+        );
+						
+										
+						
+        $fieldset->addField(
+            'display_in_checkout_page',
+            'select',
+            [
+                'label' => __('Display In Checkout Page '),
+                'title' => __('Display In Checkout Page '),
+                'name' => 'display_in_checkout_page',
+				
+                'options' => \Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Grid::getOptionArray8(),
+                'disabled' => $isElementDisabled
+            ]
+        );
+						
+										
+						
+        $fieldset->addField(
+            'display_in_ordersuccess_page',
+            'select',
+            [
+                'label' => __('Display In Order Success Page '),
+                'title' => __('Display In Order Success Page '),
+                'name' => 'display_in_ordersuccess_page',
+				
+                'options' => \Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Grid::getOptionArray9(),
+                'disabled' => $isElementDisabled
+            ]
+        );
+						
+										
+						
+        $fieldset->addField(
+            'display_in_cms_page',
+            'select',
+            [
+                'label' => __('Display In Cms Page '),
+                'title' => __('Display In Cms Page '),
+                'name' => 'display_in_cms_page',
+				
+                'options' => \Redstage\GlobalTrackingPixel\Block\Adminhtml\GlobalTrackingPixel\Grid::getOptionArray10(),
+                'disabled' => $isElementDisabled
+            ]
+        );
+						
+						
+
+        if (!$model->getId()) {
+            $model->setData('is_active', $isElementDisabled ? '0' : '1');
+        }
+
+        $form->setValues($model->getData());
+        $this->setForm($form);
+		
+        return parent::_prepareForm();
+    }
+
+    /**
+     * Prepare label for tab
+     *
+     * @return \Magento\Framework\Phrase
+     */
+    public function getTabLabel()
+    {
+        return __('Item Information');
+    }
+
+    /**
+     * Prepare title for tab
+     *
+     * @return \Magento\Framework\Phrase
+     */
+    public function getTabTitle()
+    {
+        return __('Item Information');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function canShowTab()
+    {
+        return true;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isHidden()
+    {
+        return false;
+    }
+
+    /**
+     * Check permission for passed action
+     *
+     * @param string $resourceId
+     * @return bool
+     */
+    protected function _isAllowedAction($resourceId)
+    {
+        return $this->_authorization->isAllowed($resourceId);
+    }
+    
+    public function getTargetOptionArray(){
+    	return array(
+    				'_self' => "Self",
+					'_blank' => "New Page",
+    				);
+    }
+}
